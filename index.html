@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abhay - Personal Portfolio</title>
+
+  <!--
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+    <!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/profile.jpg" alt="Abhay" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Abhay Raghuwanshi">Abhay Raghuwanshi</h1>
+
+          <p class="title">Software developer</p>
+        </div>
+
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
+
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
+
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:raghuwanshi.abhay405@gmail.com" class="contact-link">raghuwanshi.abhay405@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="tel:+917740804048" class="contact-link">+91 7740804048</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="1982-06-23">3 Jan, 2000</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Location</p>
+
+              <address>Chennai, Tamil Nadu, India </address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://www.linkedin.com/in/abhay-raghuwanshi-2a6804173/" class="social-link">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://leetcode.com/u/abhayraghuwanshi/" class="social-link">
+              <ion-icon name="code-working-outline"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://github.com/abhayraghuwanshi" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+    
+
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+            Experienced Java developer with 2+ years of experience, adept in the full software development lifecycle (SDLC) from conception to deployment. 
+            Proven track record in designing, developing, testing, and supporting client-driven Java applications
+          </p>
+
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">My Interest</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <!-- <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div> -->
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Backend development</h4>
+
+                <p class="service-item-text">
+                  Expertise in building microservice
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <!-- <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div> -->
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Deployment and Cloud</h4>
+
+                <p class="service-item-text">
+                  Jenkin, SonarQueue, Github, Docker, AWS, Kubernetes
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <!-- <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div> -->
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Monitoring</h4>
+
+                <p class="service-item-text">
+                   APM, elasticsearch, grafana, filebeat, kibana, Alerts
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <!-- <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+              </div> -->
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Design</h4>
+
+                <p class="service-item-text">
+                  High Level and low design of system.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+          <section class="resume">
+
+            <header>
+              <h2 class="h2 article-title">Resume</h2>
+            </header>
+    
+            <section class="timeline">
+    
+              <div class="title-wrapper">
+                <div class="icon-box">
+                  <ion-icon name="book-outline"></ion-icon>
+                </div>
+    
+                <h3 class="h3">Education</h3>
+              </div>
+    
+              <ol class="timeline-list">
+
+                <li class="timeline-item">
+              
+                  <h4 class="h4 timeline-item-title">Indian Institute of Technology, Roorkee</h4>
+              
+                  <span>2018 — 2022</span>
+              
+                  <p class="timeline-text">
+                    Bachelor of Technology (B. Tech) in Polymer Science. 
+                  </p>
+              
+                </li>
+              
+                <li class="timeline-item">
+              
+                  <h4 class="h4 timeline-item-title">Sarvodaya Senior Secondary School, Kota, Rajasthan</h4>
+              
+                  <span>2016 — 2017</span>
+              
+                  <p class="timeline-text">
+                    Completed Class 12th with a focus on science subjects.
+                  </p>
+              
+                </li>
+              
+                <li class="timeline-item">
+              
+                  <h4 class="h4 timeline-item-title">First Step Higher Secondary School, Chhindwara, Madhya Pradesh</h4>
+              
+                  <span>2015</span>
+              
+                  <p class="timeline-text">
+                    Completed Class 10th with distinction.
+                  </p>
+              
+                </li>
+              
+              </ol>
+              
+    
+            </section>
+    
+            <section class="timeline">
+    
+              <div class="title-wrapper">
+                <div class="icon-box">
+                  <ion-icon name="book-outline"></ion-icon>
+                </div>
+    
+                <h3 class="h3">Experience</h3>
+              </div>
+    
+              <ol class="timeline-list">
+
+                <li class="timeline-item">
+              
+                  <h4 class="h4 timeline-item-title">Software Developer, Societe Generale Global Solution Centre Private Limited</h4>
+              
+                  <span>Jun 2022 — Present</span>
+              
+                  <p class="timeline-text">
+                    ● Automated daily production monitoring with a Java microservice and RabbitMQ event listener for alerts, 
+                    saving 30 minutes daily for focused analysis.<br>
+                    ● Streamlined cash pool customer onboarding by 80% through automated data migration (Oracle to PostgreSQL) using Jenkins and Oracle clients. Saved 2 hours per migration.<br>
+                    ● Boosted application security (50% fewer incidents) by migrating to OAuth2 and integrating with Societe Generale identity providers.<br>
+                    ● Built Springboot microservices for seamless Societe Generale pipeline integration, enabling real-time data exchange via APIs, RabbitMQ, and SSH.<br>
+                    ● Automated scheduled jobs utilizing REST APIs to interact with LMS and integrated with Hashicorp Vault to enhance system security and data management.<br>
+                  </p>
+              
+                </li>
+              
+                <li class="timeline-item">
+              
+                  <h4 class="h4 timeline-item-title">Data Science Intern, HOME.LLC</h4>
+              
+                  <span>April 2021 — Aug 2021 | Dec 2021 — Mar 2022</span>
+              
+                  <p class="timeline-text">
+                    ● Led a research project on the US housing market, analyzing over 100 demand and supply factors impacting house prices at various levels.<br>
+                    ● Utilized Python (Pandas, Tableau) to collect, clean, and visualize data, creating reports that increased user traffic by 10%.<br>
+                    ● Developed machine learning and deep learning models to predict house prices and provide insights for housing investments.<br>
+                  </p>
+              
+                </li>
+              
+                <li class="timeline-item">
+              
+                  <h4 class="h4 timeline-item-title">Frontend Development Intern, Farmley</h4>
+              
+                  <span>Dec 2019 — Jan 2020</span>
+              
+                  <p class="timeline-text">
+                    ● Developed an order management application and created a role-based dashboard for users.<br>
+                    ● Optimized web app performance by implementing pagination and filters, leading to decreased search time.<br>
+                  </p>
+              
+                </li>
+              
+              </ol>
+              
+            </section>
+
+     <article class="resume" data-page="resume">
+
+        <header>
+          <h2 class="h2 article-title">Resume</h2>
+        </header>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Indian Institute of technology Roorkee</h4>
+
+              <span>2018 — 2022</span>
+
+              <p class="timeline-text">
+                I did my bachelor's in Polymer science from IIT roorkee
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Sarvodaya Senior Secondary School, Kota Rajasthan</h4>
+
+              <span>2016 — 2017</span>
+
+              <p class="timeline-text">
+                Completed class 12th.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">First Step Higher Secondary School, Chhindwara MP</h4>
+
+              <span>2015</span>
+
+              <p class="timeline-text">
+                passed class 10th
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="timeline">
+
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+
+            <h3 class="h3">Experience</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Creative director</h4>
+
+              <span>2015 — Present</span>
+
+              <p class="timeline-text">
+                Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
+                molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Art director</h4>
+
+              <span>2013 — 2015</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+            <li class="timeline-item">
+
+              <h4 class="h4 timeline-item-title">Web designer</h4>
+
+              <span>2010 — 2013</span>
+
+              <p class="timeline-text">
+                Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+                quas molestias
+                exceptur.
+              </p>
+
+            </li>
+
+          </ol>
+
+        </section>
+
+        <section class="skill">
+
+          <h3 class="h3 skills-title">My skills</h3>
+
+          <ul class="skills-list content-card">
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Web design</h5>
+                <data value="80">80%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 80%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Graphic design</h5>
+                <data value="70">70%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 70%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">Branding</h5>
+                <data value="90">90%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 90%;"></div>
+              </div>
+
+            </li>
+
+            <li class="skills-item">
+
+              <div class="title-wrapper">
+                <h5 class="h5">WordPress</h5>
+                <data value="50">50%</data>
+              </div>
+
+              <div class="skill-progress-bg">
+                <div class="skill-progress-fill" style="width: 50%;"></div>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+      </article>    
+
+
+  
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
