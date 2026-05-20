@@ -3,7 +3,7 @@
     {
       "id": "cooldesk",
       "title": "Cooldesk",
-      "tagline": "Smart new-tab browser extension",
+      "tagline": "Smart new-tab browser extension and desktop app",
       "description": "A productivity-first new-tab replacement with smart workspaces, notes, AI-powered suggestions, and voice actions. Built for developers who live in their browser.",
       "longDescription": "Every time I opened a new tab I got distracted — ads, news, a blank page that told me nothing useful. Cooldesk started as a personal fix and grew into a full workspace OS for the browser.\n\nEach workspace is isolated: its own pinned tabs, notes, shortcuts, and context. Switch workspaces and the whole environment changes. The AI layer learns what you were working on and surfaces relevant tabs, docs, and reminders when you open a new tab in that context.\n\nVoice actions let you do things like 'open my design workspace', 'note: follow up with Priya tomorrow', or 'show me tabs I haven't visited in 3 days' without touching the keyboard.",
       "statusNote": "Core workspace system is working. Currently integrating the AI suggestion layer using a lightweight embedding model that runs locally — avoiding API calls for privacy.",
@@ -35,7 +35,7 @@
     {
       "id": "hinge-genie",
       "title": "Hinge Genie",
-      "tagline": "AI-powered dating conversation assistant",
+      "tagline": "AI-powered dating swipping assistant",
       "description": "An AI assistant that generates context-aware, natural conversation replies for dating apps. Reads the other person's prompt + photos and crafts replies that sound like you — not like a bot.",
       "longDescription": "Most AI-generated openers are painfully obvious — generic, flattering, and immediately forgettable. Hinge Genie approaches it differently: it reads the full profile context (photos, prompts, answers) and generates replies that are specific to that person, not just 'filled in'.\n\nYou give it a few lines about yourself and your communication style upfront. After that it keeps your voice consistent across every conversation — casual, witty, direct, whatever you prefer.\n\nThe multimodal part was key: analyzing photo content (what's in the background, what activity they're doing) to find hooks that aren't just about their appearance.",
       "statusNote": "Core reply generation is working well. Currently building a Chrome extension wrapper so it works inline on the Hinge web app without copy-pasting.",
@@ -53,7 +53,7 @@
         "Chrome Extension"
       ],
       "links": {
-        "github": null,
+        "github": "https://github.com/abhayraghuwanshi/hinge-genie",
         "live": null,
         "demo": null
       },
@@ -87,7 +87,7 @@
       ],
       "links": {
         "github": null,
-        "live": null,
+        "live": "https://infraplan.cloud/",
         "demo": null
       },
       "icon": "cloud-outline",
@@ -153,7 +153,7 @@
         "GLSL"
       ],
       "links": {
-        "github": null,
+        "github": "https://github.com/abhayraghuwanshi/3dfolio",
         "live": null,
         "demo": null
       },
@@ -178,7 +178,6 @@
       "featured": false,
       "year": 2024,
       "tech": [
-        "Electron",
         "React",
         "Ollama",
         "Llama 3.2",
@@ -186,7 +185,7 @@
         "OBS Browser Source"
       ],
       "links": {
-        "github": null,
+        "github": "https://github.com/abhayraghuwanshi/cool-stream-overlay",
         "live": null,
         "demo": null
       },
@@ -265,43 +264,6 @@
         "Real-time multi-user collaborative editing",
         "Visual timeline with story branching",
         "Voice meeting & take recording"
-      ]
-    },
-    {
-      "id": "banking-microservices",
-      "title": "Enterprise Banking Microservices",
-      "tagline": "900 workflows/min at Societe Generale",
-      "description": "Production-grade microservices architecture for corporate banking operations. Handles 900+ workflows per minute with event-driven design, zero-downtime deployment, and full observability.",
-      "longDescription": "This is the production system I built and maintain at Societe Generale — a suite of microservices handling corporate cash pool management, batch processing, and real-time transaction workflows for enterprise banking clients.\n\nThe core of the system is a Temporal-based workflow orchestration engine deployed on Azure. Each business operation (end-of-day sweeps, VAT calculations, statement generation) runs as a durable workflow — meaning it survives restarts, retries automatically on failure, and has full audit history.\n\nRabbitMQ handles async communication between services. PostgreSQL stores transactional data with careful attention to isolation levels and locking to prevent race conditions at high throughput. Kubernetes with Actuator-based graceful shutdown ensures zero dropped requests during deployments.",
-      "statusNote": "Live in production. Actively maintained — recently upgraded the Airflow platform for cron scheduling and added multi-environment config support. Working on expanding the circuit breaker coverage.",
-      "challenges": "Migrating 3,000+ customers from a legacy Oracle system to PostgreSQL without downtime was the biggest challenge. Built a dual-write + reconciliation pattern: new records went to both DBs, a background job verified consistency, and cutover happened per-customer once their data was verified clean.",
-      "type": "Enterprise",
-      "status": "active",
-      "featured": true,
-      "year": 2022,
-      "tech": [
-        "Spring Boot",
-        "Temporal",
-        "Azure",
-        "RabbitMQ",
-        "PostgreSQL",
-        "Docker",
-        "Kubernetes",
-        "Jenkins",
-        "HashiCorp Vault"
-      ],
-      "links": {
-        "github": null,
-        "live": null,
-        "demo": null
-      },
-      "icon": "server-outline",
-      "highlights": [
-        "900+ workflows/min via Temporal on Azure",
-        "Dual-write Oracle → PostgreSQL migration, zero data loss",
-        "Graceful K8s shutdown with Actuator endpoints",
-        "HashiCorp Vault for secrets management",
-        "Full CI/CD across 10+ microservices"
       ]
     }
   ]

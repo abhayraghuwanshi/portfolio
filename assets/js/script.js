@@ -111,13 +111,8 @@ if (contactForm) {
 }
 
 // ================================================================
-//  PROJECT DRAWER
+//  PROJECTS — loaded from assets/data/projects.json
 // ================================================================
-const drawerOverlay = document.getElementById('drawer-overlay');
-const projectDrawer = document.getElementById('project-drawer');
-const drawerClose   = document.getElementById('drawer-close');
-const drawerContent = document.getElementById('drawer-content');
-
 const STATUS_META = {
   active:   { label: 'Live',     cls: 'status-active' },
   building: { label: 'Building', cls: 'status-building' },
@@ -125,109 +120,6 @@ const STATUS_META = {
   archived: { label: 'Archived', cls: 'status-archived' },
 };
 
-function openDrawer(p) {
-  const sm = STATUS_META[p.status.toLowerCase()] || STATUS_META.paused;
-
-  // Format long description: split on \n\n into <p> tags
-  const longDesc = (p.longDescription || p.description)
-    .split('\n\n')
-    .map(para => `<p>${para.trim()}</p>`)
-    .join('');
-
-  // Highlights
-  const highlights = (p.highlights || [])
-    .map(h => `<div class="drawer-highlight"><ion-icon name="checkmark-circle-outline"></ion-icon><span>${h}</span></div>`)
-    .join('');
-
-  // Tech tags
-  const tags = (p.tech || []).map(t => `<span class="tag">${t}</span>`).join('');
-
-  // Links
-  const linksBtns = [];
-  if (p.links.github) linksBtns.push(`<a href="${p.links.github}" target="_blank" rel="noopener" class="drawer-link drawer-link-primary"><ion-icon name="logo-github"></ion-icon> View Code</a>`);
-  if (p.links.live)   linksBtns.push(`<a href="${p.links.live}"   target="_blank" rel="noopener" class="drawer-link drawer-link-primary"><ion-icon name="open-outline"></ion-icon> Live</a>`);
-  if (p.links.demo)   linksBtns.push(`<a href="${p.links.demo}"   target="_blank" rel="noopener" class="drawer-link drawer-link-secondary"><ion-icon name="play-outline"></ion-icon> Demo</a>`);
-  if (!p.links.github && !p.links.live && !p.links.demo) {
-    linksBtns.push(`<span class="drawer-link-muted"><ion-icon name="lock-closed-outline"></ion-icon> Private repository</span>`);
-  }
-
-  // Status note
-  const statusNote = p.statusNote
-    ? `<div class="drawer-status-note"><ion-icon name="information-circle-outline"></ion-icon><span>${p.statusNote}</span></div>`
-    : '';
-
-  // Challenges
-  const challenge = p.challenges
-    ? `<div class="drawer-section"><div class="drawer-section-label">Technical Challenge</div><div class="drawer-challenge">${p.challenges}</div></div>`
-    : '';
-
-  drawerContent.innerHTML = `
-    <div class="drawer-header">
-      <div class="drawer-icon"><ion-icon name="${p.icon}"></ion-icon></div>
-      <div class="drawer-title-group">
-        <div class="drawer-badges">
-          <span class="project-status ${sm.cls}"><span class="status-dot"></span>${sm.label}</span>
-          <span class="project-type">${p.type}</span>
-        </div>
-        <h2 class="drawer-title">${p.title}</h2>
-        <p class="drawer-tagline">${p.tagline}</p>
-        <p class="drawer-year">${p.year}</p>
-      </div>
-    </div>
-
-    ${statusNote}
-
-    <div class="drawer-section">
-      <div class="drawer-section-label">Overview</div>
-      <div class="drawer-text">${longDesc}</div>
-    </div>
-
-    <div class="drawer-section">
-      <div class="drawer-section-label">Key Features</div>
-      <div class="drawer-highlights">${highlights}</div>
-    </div>
-
-    ${challenge}
-
-    <div class="drawer-section">
-      <div class="drawer-section-label">Tech Stack</div>
-      <div class="drawer-tags">${tags}</div>
-    </div>
-
-    <div class="drawer-section">
-      <div class="drawer-section-label">Links</div>
-      <div class="drawer-links">${linksBtns.join('')}</div>
-    </div>
-  `;
-
-  drawerOverlay.classList.add('open');
-  projectDrawer.classList.add('open');
-  projectDrawer.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
-
-  // Re-run ionicons on new content (needed for dynamically injected icons)
-  if (window.customElements && customElements.get('ion-icon')) {
-    drawerContent.querySelectorAll('ion-icon').forEach(icon => {
-      const name = icon.getAttribute('name');
-      if (name) { icon.removeAttribute('name'); icon.setAttribute('name', name); }
-    });
-  }
-}
-
-function closeDrawer() {
-  drawerOverlay.classList.remove('open');
-  projectDrawer.classList.remove('open');
-  projectDrawer.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
-}
-
-if (drawerClose)   drawerClose.addEventListener('click', closeDrawer);
-if (drawerOverlay) drawerOverlay.addEventListener('click', closeDrawer);
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
-
-// ================================================================
-//  PROJECTS — loaded from assets/data/projects.json
-// ================================================================
 function buildProjectCard(p, index) {
   const statusKey = p.status.toLowerCase();
   const dotCls    = `dot-${statusKey}`;
@@ -250,13 +142,10 @@ function buildProjectCard(p, index) {
         <h3 class="pr-title">${p.title}</h3>
         <span class="pr-type">${p.type}</span>
       </div>
-      <p class="pr-tagline">${p.tagline}</p>
+      <p class="pr-desc">${p.description}</p>
       <p class="pr-tags">${tagsStr}</p>
     </div>
-    <div class="pr-actions">
-      <button class="pr-detail-btn" data-project-id="${p.id}">Details →</button>
-      ${links.join('')}
-    </div>
+    ${links.length ? `<div class="pr-actions">${links.join('')}</div>` : ''}
   `;
   return article;
 }
@@ -288,13 +177,6 @@ async function loadProjects() {
       observeReveal(card);
     });
 
-    // Wire up "Read more" buttons
-    grid.querySelectorAll('.card-detail-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const project = projects.find(p => p.id === btn.dataset.projectId);
-        if (project) openDrawer(project);
-      });
-    });
   }
 
   renderCards('all');
