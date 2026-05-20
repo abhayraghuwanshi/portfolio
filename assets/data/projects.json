@@ -1,0 +1,308 @@
+{
+  "projects": [
+    {
+      "id": "cooldesk",
+      "title": "Cooldesk",
+      "tagline": "Smart new-tab browser extension",
+      "description": "A productivity-first new-tab replacement with smart workspaces, notes, AI-powered suggestions, and voice actions. Built for developers who live in their browser.",
+      "longDescription": "Every time I opened a new tab I got distracted — ads, news, a blank page that told me nothing useful. Cooldesk started as a personal fix and grew into a full workspace OS for the browser.\n\nEach workspace is isolated: its own pinned tabs, notes, shortcuts, and context. Switch workspaces and the whole environment changes. The AI layer learns what you were working on and surfaces relevant tabs, docs, and reminders when you open a new tab in that context.\n\nVoice actions let you do things like 'open my design workspace', 'note: follow up with Priya tomorrow', or 'show me tabs I haven't visited in 3 days' without touching the keyboard.",
+      "statusNote": "Core workspace system is working. Currently integrating the AI suggestion layer using a lightweight embedding model that runs locally — avoiding API calls for privacy.",
+      "challenges": "The hardest part was Chrome's service worker lifecycle. Background workers get killed after 30 seconds of inactivity, so persisting workspace state reliably without data loss required a hybrid of chrome.storage, IndexedDB, and a keep-alive heartbeat strategy.",
+      "type": "Browser Extension",
+      "status": "building",
+      "featured": true,
+      "year": 2025,
+      "tech": [
+        "React",
+        "Chrome APIs",
+        "Vite",
+        "OpenAI",
+        "Web Speech API",
+        "IndexedDB"
+      ],
+      "links": {
+        "github": null,
+        "live": "https://cool-desk.com",
+        "demo": null
+      },
+      "icon": "extension-puzzle-outline",
+      "highlights": [
+        "Persistent workspaces with isolated tab groups",
+        "AI-powered context suggestions",
+        "Offline-first design"
+      ]
+    },
+    {
+      "id": "hinge-genie",
+      "title": "Hinge Genie",
+      "tagline": "AI-powered dating conversation assistant",
+      "description": "An AI assistant that generates context-aware, natural conversation replies for dating apps. Reads the other person's prompt + photos and crafts replies that sound like you — not like a bot.",
+      "longDescription": "Most AI-generated openers are painfully obvious — generic, flattering, and immediately forgettable. Hinge Genie approaches it differently: it reads the full profile context (photos, prompts, answers) and generates replies that are specific to that person, not just 'filled in'.\n\nYou give it a few lines about yourself and your communication style upfront. After that it keeps your voice consistent across every conversation — casual, witty, direct, whatever you prefer.\n\nThe multimodal part was key: analyzing photo content (what's in the background, what activity they're doing) to find hooks that aren't just about their appearance.",
+      "statusNote": "Core reply generation is working well. Currently building a Chrome extension wrapper so it works inline on the Hinge web app without copy-pasting.",
+      "challenges": "Getting the tone right was the main challenge. Early versions sounded AI-generated because they were too polished. The fix was adding a 'naturalness pass' that deliberately introduces small imperfections — shorter sentences, contractions, casual phrasing — to match how people actually text.",
+      "type": "AI Tool",
+      "status": "Archived",
+      "featured": true,
+      "year": 2025,
+      "tech": [
+        "React",
+        "FastAPI",
+        "Python",
+        "Claude API",
+        "Vision Models",
+        "Chrome Extension"
+      ],
+      "links": {
+        "github": null,
+        "live": null,
+        "demo": null
+      },
+      "icon": "chatbubbles-outline",
+      "highlights": [
+        "Multimodal profile analysis (text + photos)",
+        "Tone & style calibration per user",
+        "Context-aware reply generation",
+        "Inline browser extension wrapper"
+      ]
+    },
+    {
+      "id": "infraplan",
+      "title": "InfraPlan",
+      "tagline": "AI cloud architecture planner",
+      "description": "Describe what you want to build — InfraPlan generates a cloud architecture, cost estimate, and scaling strategy before you write a single line of infra code.",
+      "longDescription": "Most engineers figure out their cloud architecture as they go — and end up with an expensive, over-engineered mess or something that breaks under load. InfraPlan is meant to be the conversation you have before you start building.\n\nYou describe your product: expected users, traffic patterns, data size, SLA requirements. InfraPlan outputs a recommended architecture (with a visual diagram), a monthly cost breakdown per service, and a phased scaling plan — starting small and growing as needed.\n\nIt also flags common mistakes: 'You said 50k DAU but chose a single-AZ RDS — here's why that's risky and what to use instead.'",
+      "statusNote": "Paused while finishing other projects. The architecture generation and cost estimation are ~70% done. Needs the diagram rendering layer and a feedback loop to refine recommendations.",
+      "challenges": "AWS pricing is a nightmare to query accurately — instance types, reserved vs on-demand, data transfer costs, and regional differences make reliable estimates hard. Built a caching layer over the AWS Pricing API to handle this without hammering rate limits.",
+      "type": "AI Tool",
+      "status": "paused",
+      "featured": false,
+      "year": 2025,
+      "tech": [
+        "React",
+        "FastAPI",
+        "LLM",
+        "AWS Pricing API",
+        "Terraform",
+        "D3.js"
+      ],
+      "links": {
+        "github": null,
+        "live": null,
+        "demo": null
+      },
+      "icon": "cloud-outline",
+      "highlights": [
+        "Natural language → architecture diagram",
+        "Real-time cost breakdown per service",
+        "Phased scaling recommendations",
+        "Common mistake detection"
+      ]
+    },
+    {
+      "id": "k8singress",
+      "title": "k8singress",
+      "tagline": "Kubernetes ingress experiments & patterns",
+      "description": "Hands-on experiments around Kubernetes ingress controllers, routing strategies, canary deployments, and real-world traffic handling patterns. A living lab and reference.",
+      "longDescription": "K8s ingress documentation is full of 'hello world' examples that fall apart the moment you try anything real. k8singress is my working notes and reproduced patterns from production problems I've hit or debugged.\n\nEach pattern is a self-contained example you can run locally with kind: the config, the test script, the failure mode it solves, and the tradeoffs. Topics covered include weighted canary rollouts, header-based routing for feature flags, mTLS between services, rate limiting at the edge, and zero-downtime cert rotation.\n\nI keep adding to this as I hit new things at work or encounter edge cases worth documenting.",
+      "statusNote": "Active — added Istio ambient mesh examples last month. Currently writing up a pattern for cross-cluster traffic management with Submariner.",
+      "challenges": "Reproducing production traffic behavior in a local kind cluster is harder than it sounds. Latency, connection pooling behavior, and DNS resolution work differently. Built a traffic simulation layer using k6 that mimics realistic request distributions for testing.",
+      "type": "DevOps / K8s",
+      "status": "Archived",
+      "featured": false,
+      "year": 2024,
+      "tech": [
+        "Kubernetes",
+        "Nginx Ingress",
+        "Helm",
+        "Istio",
+        "Go",
+        "kind",
+        "k6"
+      ],
+      "links": {
+        "github": "https://github.com/abhayraghuwanshi/k8singress",
+        "live": "https://k8sdiagram.fun/",
+        "demo": "https://k8sdiagram.fun/"
+      },
+      "icon": "git-network-outline",
+      "highlights": [
+        "Canary & blue/green routing patterns",
+        "Header-based feature flag routing",
+        "mTLS between services",
+        "Zero-downtime cert rotation",
+        "Rate limiting at the edge"
+      ]
+    },
+    {
+      "id": "3d-portfolio",
+      "title": "3D Portfolio",
+      "tagline": "Interactive system-simulator style portfolio",
+      "description": "A portfolio where projects are nodes in a live system graph — click a node to explore it like a running service. Workflows, quests, dependency edges. Not a website, a simulation.",
+      "longDescription": "The idea came from staring at architecture diagrams at work. What if a portfolio looked like a running system instead of a resume?\n\nEach project is a service node. You can see its 'health' (active vs paused), its dependencies (tech stack edges), and click into it to see logs, metrics, and a walkthrough. There's a quest layer where you 'unlock' deeper access by solving small challenges related to the project.\n\nThe aesthetic is terminal-meets-Figma: dark background, glowing connection lines, node status indicators that pulse like real monitoring dashboards.",
+      "statusNote": "Paused — the concept is solid but the scope keeps growing. Needs a focused 2-week build sprint to get to an MVP. The Three.js scene graph and basic navigation are done.",
+      "challenges": "Getting WebGL performance acceptable on lower-end devices while maintaining the visual quality was the main constraint. Ended up implementing a LOD (level of detail) system for the graph nodes and debouncing physics calculations when nodes are off-screen.",
+      "type": "Creative / Frontend",
+      "status": "paused",
+      "featured": false,
+      "year": 2025,
+      "tech": [
+        "Three.js",
+        "React",
+        "WebGL",
+        "D3.js",
+        "GLSL"
+      ],
+      "links": {
+        "github": null,
+        "live": null,
+        "demo": null
+      },
+      "icon": "planet-outline",
+      "highlights": [
+        "Projects as live service nodes in a graph",
+        "Dependency edges between tech choices",
+        "Quest & achievement unlock system",
+        "Real-time 'health' status indicators"
+      ]
+    },
+    {
+      "id": "yt-overlay",
+      "title": "YouTube Streaming Overlay",
+      "tagline": "Stream overlay with a local AI companion",
+      "description": "A browser-source overlay for YouTube streams featuring a local AI companion. The AI reads stream context, chat messages, and responds in real-time — fully offline with a local model.",
+      "longDescription": "Most stream overlays are static graphics. I wanted one that actually participates in the stream — reading chat, reacting to moments, and giving me (the streamer) relevant info without breaking focus.\n\nThe AI companion runs entirely on-device via Ollama. It ingests the last N chat messages, current stream title/category, and optional scene context to generate short, relevant responses. It can answer viewer questions, surface links I've mentioned before, or flag when chat goes toxic.\n\nThe overlay itself is an OBS browser source — a React app served locally that communicates with the AI backend over WebSocket.",
+      "statusNote": "Core overlay and Ollama integration work end-to-end. Currently building the chat toxicity detection module and a 'streamer mode' that gives me private whispers from the AI without showing them on stream.",
+      "challenges": "Latency was the main challenge — viewers expect real-time responses. Llama 3.2 3B is fast enough on a GPU but spikes to 4-5s on CPU. Added a streaming token approach so responses appear word-by-word instead of all at once, which feels much more natural.",
+      "type": "Streaming Tool",
+      "status": "building",
+      "featured": false,
+      "year": 2024,
+      "tech": [
+        "Electron",
+        "React",
+        "Ollama",
+        "Llama 3.2",
+        "WebSocket",
+        "OBS Browser Source"
+      ],
+      "links": {
+        "github": null,
+        "live": null,
+        "demo": null
+      },
+      "icon": "videocam-outline",
+      "highlights": [
+        "Fully local — no API keys or cloud",
+        "Live chat reading & response generation",
+        "OBS browser source compatible",
+        "Streamer-only private AI whispers"
+      ]
+    },
+    {
+      "id": "dropquest",
+      "title": "Dropquest",
+      "tagline": "C2C delivery marketplace powered by travelers",
+      "description": "Community-powered platform connecting users with travelers for personalized parcel delivery. Full-stack marketplace with real-time tracking and role-based dashboards.",
+      "longDescription": "The idea: when someone flies from Mumbai to London, they have empty suitcase space. Someone else needs to send a gift to London. Dropquest connects them — the traveler earns money, the sender gets a cheaper, personal delivery.\n\nThe platform has three user roles: senders (post delivery requests with pickup/drop locations), travelers (browse requests that match their route), and admins. Matching is location-based with a route overlap algorithm.\n\nReal-time delivery status updates are pushed via WebSocket. The auth system uses OAuth2 with JWT — users can sign in with Google and the role is assigned on first login based on how they came in (post a request vs offer a trip).",
+      "statusNote": "The core marketplace loop works: post request → match traveler → confirm → track. Currently building the in-app messaging between sender and traveler, and a review/rating system.",
+      "challenges": "The route matching algorithm needed to be both accurate and fast — checking all active trips against a new request on insert was O(n²) with naive geo queries. Solved it with a PostGIS extension and bounding-box pre-filtering before doing the full route overlap check.",
+      "type": "Full Stack",
+      "status": "Archived",
+      "featured": true,
+      "year": 2024,
+      "tech": [
+        "React.js",
+        "Spring Boot",
+        "PostgreSQL",
+        "PostGIS",
+        "Redis",
+        "WebSocket",
+        "OAuth2",
+        "JWT"
+      ],
+      "links": {
+        "github": "https://github.com/abhayraghuwanshi",
+        "live": null,
+        "demo": null
+      },
+      "icon": "cube-outline",
+      "highlights": [
+        "Route-based traveler–sender matching",
+        "Real-time delivery tracking via WebSocket",
+        "Three-role access control system",
+        "PostGIS geo-query optimization"
+      ]
+    },
+    {
+      "id": "ai-movie-script",
+      "title": "AI Movie Script Generator",
+      "tagline": "Collaborative AI-powered scriptwriting platform",
+      "description": "AI-powered platform for collaborative movie script generation with agent-based character dialogue, an interactive timeline editor, and real-time voice meeting integration.",
+      "longDescription": "Writing a screenplay is fundamentally collaborative — writers, directors, and actors all pull the story in different directions. This platform lets multiple people co-write a script in real-time, with AI agents playing specific characters to fill in dialogue when a human isn't available.\n\nEach character in the script has an 'agent' with a defined personality, speech pattern, and knowledge of the story so far. When you're writing a scene, you can invoke any character's agent to generate dialogue options — or let multiple agents improvise a scene together.\n\nThe timeline editor is a visual representation of the script — scenes as blocks on a track, with branching for alternate storyline versions. Voice meeting integration lets the team read through the script live and record takes directly into the platform.",
+      "statusNote": "Agent-based dialogue and the core editor work. The timeline branching logic is in progress — handling merge conflicts when two writers edit the same scene simultaneously is the current blocker.",
+      "challenges": "Keeping character voices consistent across a long script is hard — LLMs drift after a few thousand tokens of context. Solved it with per-character 'personality embeddings' that get injected into every generation request alongside a rolling summary of what that character has said and done.",
+      "type": "AI Tool",
+      "status": "Archived",
+      "featured": true,
+      "year": 2024,
+      "tech": [
+        "React",
+        "FastAPI",
+        "Python",
+        "WebSocket",
+        "Material-UI",
+        "AI Agents",
+        "LangChain"
+      ],
+      "links": {
+        "github": "https://github.com/abhayraghuwanshi",
+        "live": null,
+        "demo": null
+      },
+      "icon": "film-outline",
+      "highlights": [
+        "AI agents with per-character personalities",
+        "Real-time multi-user collaborative editing",
+        "Visual timeline with story branching",
+        "Voice meeting & take recording"
+      ]
+    },
+    {
+      "id": "banking-microservices",
+      "title": "Enterprise Banking Microservices",
+      "tagline": "900 workflows/min at Societe Generale",
+      "description": "Production-grade microservices architecture for corporate banking operations. Handles 900+ workflows per minute with event-driven design, zero-downtime deployment, and full observability.",
+      "longDescription": "This is the production system I built and maintain at Societe Generale — a suite of microservices handling corporate cash pool management, batch processing, and real-time transaction workflows for enterprise banking clients.\n\nThe core of the system is a Temporal-based workflow orchestration engine deployed on Azure. Each business operation (end-of-day sweeps, VAT calculations, statement generation) runs as a durable workflow — meaning it survives restarts, retries automatically on failure, and has full audit history.\n\nRabbitMQ handles async communication between services. PostgreSQL stores transactional data with careful attention to isolation levels and locking to prevent race conditions at high throughput. Kubernetes with Actuator-based graceful shutdown ensures zero dropped requests during deployments.",
+      "statusNote": "Live in production. Actively maintained — recently upgraded the Airflow platform for cron scheduling and added multi-environment config support. Working on expanding the circuit breaker coverage.",
+      "challenges": "Migrating 3,000+ customers from a legacy Oracle system to PostgreSQL without downtime was the biggest challenge. Built a dual-write + reconciliation pattern: new records went to both DBs, a background job verified consistency, and cutover happened per-customer once their data was verified clean.",
+      "type": "Enterprise",
+      "status": "active",
+      "featured": true,
+      "year": 2022,
+      "tech": [
+        "Spring Boot",
+        "Temporal",
+        "Azure",
+        "RabbitMQ",
+        "PostgreSQL",
+        "Docker",
+        "Kubernetes",
+        "Jenkins",
+        "HashiCorp Vault"
+      ],
+      "links": {
+        "github": null,
+        "live": null,
+        "demo": null
+      },
+      "icon": "server-outline",
+      "highlights": [
+        "900+ workflows/min via Temporal on Azure",
+        "Dual-write Oracle → PostgreSQL migration, zero data loss",
+        "Graceful K8s shutdown with Actuator endpoints",
+        "HashiCorp Vault for secrets management",
+        "Full CI/CD across 10+ microservices"
+      ]
+    }
+  ]
+}

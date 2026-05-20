@@ -1,571 +1,329 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Abhay - Personal Portfolio</title>
-
-  <!--
-    - favicon
-  -->
+  <title>Abhay Raghuwanshi — Software Developer</title>
+  <meta name="description" content="Abhay Raghuwanshi — Software Developer. Java, Spring Boot, Kubernetes, Cloud. 3+ years at Societe Generale. IIT Roorkee.">
   <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
-
-  <!--
-    - custom css link
-  -->
   <link rel="stylesheet" href="./assets/css/style.css">
-
-  <!--
-    - google font link
-  -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-  <!--
-    - #MAIN
-  -->
+  <nav class="navbar" data-navbar>
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">AR</a>
+      <ul class="nav-list" data-nav-list>
+        <li><a href="#home"       class="nav-link active" data-nav-link>Home</a></li>
+        <li><a href="#skills"     class="nav-link"        data-nav-link>Stack</a></li>
+        <li><a href="#projects"   class="nav-link"        data-nav-link>Projects</a></li>
+        <li><a href="#experience" class="nav-link"        data-nav-link>Experience</a></li>
+        <li><a href="#contact"    class="nav-link"        data-nav-link>Contact</a></li>
+      </ul>
+      <button class="nav-toggle" data-nav-toggle aria-label="Toggle menu">
+        <ion-icon name="menu-outline"  class="icon-menu"></ion-icon>
+        <ion-icon name="close-outline" class="icon-close"></ion-icon>
+      </button>
+    </div>
+  </nav>
 
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
+    <!-- ===== Hero: Bento Grid ===== -->
+    <section id="home" class="hero">
+      <div class="hero-bento">
 
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/profile.jpg" alt="Abhay" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Abhay Raghuwanshi">Abhay Raghuwanshi</h1>
-
-          <p class="title">Software developer</p>
+        <div class="bento-cell cell-intro">
+          <div class="avail-badge">
+            <span class="avail-dot"></span>Open to opportunities
+          </div>
+          <h1 class="display-name">Abhay<br>Raghuwanshi</h1>
+          <p class="cell-bio">Backend-leaning full-stack engineer. Building microservices, cloud infra, and AI-assisted products. 3+ yrs at Societe Generale. IIT Roorkee.</p>
+          <div class="hero-btns">
+            <a href="#contact" class="btn-solid">Let's work →</a>
+            <a href="#" class="btn-ghost" download>Resume ↓</a>
+          </div>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+        <div class="bento-cell cell-photo">
+          <img src="./assets/images/profile.jpg" alt="Abhay Raghuwanshi" class="profile-photo">
+        </div>
 
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
+        <div class="bento-cell cell-stat accent-bg">
+          <span class="stat-n" data-target="3">0</span>
+          <span class="stat-unit">+</span>
+          <p class="stat-l">Years at scale</p>
+        </div>
 
-      </div>
+        <div class="bento-cell cell-stat2">
+          <span class="stat-n" data-target="50">0</span>
+          <span class="stat-unit">+</span>
+          <p class="stat-l">Projects shipped</p>
+        </div>
 
-      <div class="sidebar-info_more">
+        <div class="bento-cell cell-social">
+          <a href="https://github.com/abhayraghuwanshi" target="_blank" class="social-row-link">
+            <ion-icon name="logo-github"></ion-icon><span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/abhay-raghuwanshi-2a6804173/" target="_blank" class="social-row-link">
+            <ion-icon name="logo-linkedin"></ion-icon><span>LinkedIn</span>
+          </a>
+          <a href="https://leetcode.com/u/abhayraghuwanshi/" target="_blank" class="social-row-link">
+            <ion-icon name="code-working-outline"></ion-icon><span>LeetCode</span>
+          </a>
+          <a href="mailto:raghuwanshi.abhay405@gmail.com" class="social-row-link">
+            <ion-icon name="mail-outline"></ion-icon><span>Email</span>
+          </a>
+        </div>
 
-        <div class="separator"></div>
+        <div class="bento-cell cell-company">
+          <div class="company-row">
+            <span class="co-name">Societe Generale</span>
+            <span class="co-role">Software Developer · 2022 – now</span>
+          </div>
+          <div class="company-divider"></div>
+          <div class="company-row">
+            <span class="co-name">IIT Roorkee</span>
+            <span class="co-role">B.Tech Polymer Science · 2022</span>
+          </div>
+        </div>
 
-        <ul class="contacts-list">
+        <div class="bento-cell cell-location">
+          <ion-icon name="location-outline"></ion-icon>
+          <span>Bangalore<br>India</span>
+        </div>
 
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:raghuwanshi.abhay405@gmail.com" class="contact-link">raghuwanshi.abhay405@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="tel:+917740804048" class="contact-link">+91 7740804048</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">3 Jan, 2000</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Bangalore, Karnataka, India </address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://www.linkedin.com/in/abhay-raghuwanshi-2a6804173/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://leetcode.com/u/abhayraghuwanshi/" class="social-link">
-              <ion-icon name="code-working-outline"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://github.com/abhayraghuwanshi" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
+        <div class="bento-cell cell-email">
+          <a href="mailto:raghuwanshi.abhay405@gmail.com" class="email-link">
+            raghuwanshi<wbr>.abhay405<wbr>@gmail.com
+          </a>
+          <ion-icon name="arrow-up-outline" class="email-arrow"></ion-icon>
+        </div>
 
       </div>
+    </section>
 
-    </aside>
+    <!-- ===== Stack ===== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <div class="sec-header-row">
+          <h2 class="sec-label">Technical Stack</h2>
+          <p class="sec-sub">What I build with</p>
+        </div>
+        <div class="skill-wall">
+          <span class="sk sk-xl">Java</span>
+          <span class="sk sk-xl">Spring Boot</span>
+          <span class="sk sk-xl">Kubernetes</span>
+          <span class="sk sk-lg">PostgreSQL</span>
+          <span class="sk sk-lg">Docker</span>
+          <span class="sk sk-lg">Microservices</span>
+          <span class="sk sk-md">AWS</span>
+          <span class="sk sk-md">Azure</span>
+          <span class="sk sk-md">RabbitMQ</span>
+          <span class="sk sk-md">Redis</span>
+          <span class="sk sk-md">Temporal</span>
+          <span class="sk sk-md">Python</span>
+          <span class="sk sk-md">React</span>
+          <span class="sk sk-md">Event-Driven</span>
+          <span class="sk sk-sm">FastAPI</span>
+          <span class="sk sk-sm">Elasticsearch</span>
+          <span class="sk sk-sm">Grafana</span>
+          <span class="sk sk-sm">Kibana</span>
+          <span class="sk sk-sm">Airflow</span>
+          <span class="sk sk-sm">Helm</span>
+          <span class="sk sk-sm">Jenkins</span>
+          <span class="sk sk-sm">HashiCorp Vault</span>
+          <span class="sk sk-sm">GitHub Actions</span>
+          <span class="sk sk-sm">Quartz</span>
+          <span class="sk sk-sm">Oracle</span>
+        </div>
+      </div>
+    </section>
 
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="sec-header-row">
+          <h2 class="sec-label">Projects</h2>
+          <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active"><span class="filter-dot dot-active"></span>Live</button>
+            <button class="filter-btn" data-filter="building"><span class="filter-dot dot-building"></span>Building</button>
+            <button class="filter-btn" data-filter="paused"><span class="filter-dot dot-paused"></span>Paused</button>
+            <button class="filter-btn" data-filter="archived"><span class="filter-dot dot-archived"></span>Archived</button>
+          </div>
+        </div>
+        <div class="projects-list" id="projects-grid"></div>
+        <p class="projects-empty" id="projects-empty" style="display:none">No projects with that status yet.</p>
+      </div>
+    </section>
 
+    <!-- ===== Experience ===== -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="sec-label" style="margin-bottom:48px">Experience</h2>
+        <div class="timeline">
 
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-
-
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-            Experienced Java developer with 3+ years of experience, adept in the full software development lifecycle
-            (SDLC) from conception to deployment.
-            Proven track record in designing, developing, testing, and supporting client-driven Java applications
-          </p>
-
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">My Interest</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <!-- <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div> -->
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Backend development</h4>
-
-                <p class="service-item-text">
-                  Expertise in building microservice
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <!-- <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div> -->
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Deployment and Cloud</h4>
-
-                <p class="service-item-text">
-                  Jenkin, SonarQueue, Github, Docker, AWS, Kubernetes, Azure
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <!-- <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div> -->
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Monitoring</h4>
-
-                <p class="service-item-text">
-                  APM, elasticsearch, grafana, filebeat, kibana, Alerts
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <!-- <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div> -->
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Design</h4>
-
-                <p class="service-item-text">
-                  High Level and low design of system.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-          <section class="resume">
-
-            <header>
-              <h2 class="h2 article-title">Resume</h2>
-            </header>
-
-            <section class="timeline">
-
-              <div class="title-wrapper">
-                <div class="icon-box">
-                  <ion-icon name="book-outline"></ion-icon>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-role">Software Developer</h3>
+                  <span class="tl-company">Societe Generale Global Solution Centre</span>
                 </div>
-
-                <h3 class="h3">Education</h3>
+                <span class="tl-period">Jun 2022 — Present</span>
               </div>
-
-              <ol class="timeline-list">
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">Indian Institute of Technology, Roorkee</h4>
-
-                  <span>2018 — 2022</span>
-
-                  <p class="timeline-text">
-                    Bachelor of Technology (B. Tech) in Polymer Science.
-                  </p>
-
-                </li>
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">Sarvodaya Senior Secondary School, Kota, Rajasthan</h4>
-
-                  <span>2016 — 2017</span>
-
-                  <p class="timeline-text">
-                    Completed Class 12th with a focus on science subjects.
-                  </p>
-
-                </li>
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">First Step Higher Secondary School, Chhindwara, Madhya Pradesh</h4>
-
-                  <span>2015</span>
-
-                  <p class="timeline-text">
-                    Completed Class 10th with distinction.
-                  </p>
-
-                </li>
-
-              </ol>
-            </section>
-
-            <section class="timeline">
-
-              <div class="title-wrapper">
-                <div class="icon-box">
-                  <ion-icon name="book-outline"></ion-icon>
-                </div>
-
-                <h3 class="h3">Projects</h3>
+              <div class="tl-body">
+                <p class="tl-cat">Software Development &amp; System Design</p>
+                <ul class="tl-list">
+                  <li>Architected an asynchronous, event-driven system for daily batch operations, integrating file processing, APIs, and webhooks to improve throughput and reliability</li>
+                  <li>Designed and deployed a workflow orchestration engine in Azure using Temporal, achieving 900 workflows per minute</li>
+                  <li>Developed and deployed a RESTful API to compute VAT for financial transactions</li>
+                  <li>Implemented post-sweep statement generation service using dual RabbitMQ connections</li>
+                  <li>Replaced leader-based Spring scheduler with distributed Quartz Scheduler</li>
+                </ul>
+                <p class="tl-cat">Data Migration &amp; Legacy Modernization</p>
+                <ul class="tl-list">
+                  <li>Automated migration of 3,000+ cash pool customers from Oracle to PostgreSQL via Jenkins, reducing manual onboarding by 80%</li>
+                  <li>Reduced data migration time by 2 hours per batch with optimized automation scripts</li>
+                  <li>Migrated legacy CTI authentication to enterprise OAuth 2.0 on WebLogic with zero data loss</li>
+                </ul>
+                <p class="tl-cat">DevOps, Cloud &amp; Automation</p>
+                <ul class="tl-list">
+                  <li>Created and managed CI/CD pipelines using GitHub Actions for 10+ microservices</li>
+                  <li>Integrated HashiCorp Vault for centralized secrets management across all services</li>
+                  <li>Implemented graceful shutdown for Spring Boot services in Kubernetes using Actuator endpoints</li>
+                </ul>
               </div>
+            </div>
+          </div>
 
-              <ol class="timeline-list">
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">Dropquest</h4>
-                  <div class="timeline-text">
-                    <p>Dropquest is a community-powered C2C delivery platform where users can post package delivery
-                      requests ("quests") and other users (typically travelers) can fulfill them in exchange for
-                      compensation. Think of it as a marketplace for parcel delivery, made personal.</p>
-                  </div>
-                  <div>
-                    <span class="timeline-text-subtitle">Frontend (Dropquest-Front):</span>
-                    <ul class="timeline-text">
-                      <li>React.js-based web application</li>
-                      <li>Create and manage delivery requests</li>
-                      <li>Real-time communication</li>
-                      <li>Personalized, role-based dashboards</li>
-                      <li>Dedicated store section for frequent products</li>
-                      <li>Location-based browsing and requests</li>
-                      <li>Responsive design, Google OAuth2 authentication</li>
-                      <li>Integrates with backend APIs</li>
-                    </ul>
-                    <span class="timeline-text-subtitle">Backend (Dropquest-Back)</span>
-                    <ul class="timeline-text">
-                      <li>Spring Boot-powered RESTful APIs</li>
-                      <li>Business logic for delivery marketplace</li>
-                      <li>User authentication (OAuth2 and JWT)</li>
-                      <li>Role-based access control</li>
-                      <li>Data management with PostgreSQL and Redis</li>
-                      <li>Secure, scalable, and efficient operations</li>
-                    </ul>
-                </li>
-                <li class="timeline-item">
-                  <h4 class="h4 timeline-item-title">AI Movie Generation</h4>
-                  <ul class="timeline-text">
-                    <li><b>Agent-Based Script Generation:</b> Uses AI agents to collaboratively generate movie scripts,
-                      with each character or role powered by its own conversational agent for authentic, dynamic
-                      dialogue.
-                    </li>
-                    <li><b>Premise & Story Discussion:</b> Supports high-level premise and story brainstorming, allowing
-                      users (and AI agents) to discuss, refine, and agree on the core idea before scriptwriting begins.
-                    </li>
-                    <li><b>Interactive Timeline Movie Editor:</b> Feature-rich timeline UI for structuring scenes,
-                      events,
-                      and dialogue, with real-time updates and batch editing tools.</li>
-                    <li><b>AI-Driven Scene Creation:</b> Automatically generates scene setups, event beats, and dialogue
-                      based on the discussed premise and agent interactions.</li>
-                    <li><b>Real-Time Collaboration:</b> Enables users to edit, review, and iterate on scripts and
-                      timelines live, with instant feedback and updates.</li>
-                    <li><b>Voice Meeting Integration:</b> Seamlessly transitions from script discussion to live table
-                      reads or voice meetings, with real-time transcription and AI participation.</li>
-                    <li><b>Full-Stack Modern Tech:</b> Built with React and FastAPI, leveraging advanced state
-                      management,
-                      Pydantic schemas, and scalable WebSocket infrastructure.</li>
-                    <li><b>Professional UI/UX:</b> Clean, responsive design with Material-UI for an intuitive creative
-                      workflow.</li>
-                  </ul>
-                </li>
-              </ol>
-            </section>
-
-            <section class="timeline">
-
-              <div class="title-wrapper">
-                <div class="icon-box">
-                  <ion-icon name="book-outline"></ion-icon>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-role">Data Science Intern</h3>
+                  <span class="tl-company">HOME.LLC</span>
                 </div>
-
-                <h3 class="h3">Experience</h3>
+                <span class="tl-period">Apr 2021 — Mar 2022</span>
               </div>
+              <div class="tl-body">
+                <ul class="tl-list">
+                  <li>Led research on the US housing market analyzing 100+ demand and supply factors impacting house prices</li>
+                  <li>Used Python (Pandas, Tableau) to clean and visualize data — reports increased user traffic by 10%</li>
+                  <li>Built ML and deep learning models to predict house prices for investment insights</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-              <ol class="timeline-list">
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">Software Developer, Societe Generale Global Solution Centre Private
-                    Limited</h4>
-
-                  <span>Jun 2022 — Present</span>
-
-                  <p>
-                    <span class="timeline-text-subtitle">Software Development & System Design</span>
-                  <ul class="timeline-text">
-                    <li><b>Architected</b> an asynchronous, event-driven system for daily batch operations, integrating
-                      file processing, APIs, and webhooks to improve throughput and reliability</li>
-                    <li><b>Designed</b> and deployed a workflow orchestration engine in Azure using Temporal, achieving
-                      a processing throughput of 900 workflows per minute</li>
-                    <li><b>Engineered</b> and refactored a Beginning-of-Day (BOD) batch processing workflow to handle
-                      high-volume corporate customer transactions</li>
-                    <li><b>Developed</b> and deployed a RESTful API to accurately compute Value Added Tax (VAT) for
-                      financial transactions</li>
-                    <li><b>Implemented</b> a post-sweep statement generation service using dual RabbitMQ connections to
-                      support migrated, new, and existing account types</li>
-                    <li><b>Replaced</b> a leader based Spring-based scheduler with a distributed Quartz Scheduler,
-                      improving
-                      the reliability and scalability of critical scheduled tasks</li>
-                    <li><b>Resiliency</b> improvements for microservices, including circuit breakers and fallbacks</li>
-                  </ul>
-                  <span class="timeline-text-subtitle">Data Migration & Legacy System Modernization</span>
-                  <ul class="timeline-text">
-                    <li><b>Automated</b> the migration of over 3,000 cash pool customers from Oracle to PostgreSQL using
-                      Jenkins, reducing manual onboarding efforts by 80%</li>
-                    <li><b>Reduced</b> data migration time by 2 hours per batch by developing and optimizing automated
-                      scripts for the migration process</li>
-                    <li><b>Migrated</b> a legacy CTI application's authentication from a proprietary system to an
-                      enterprise-wide Oauth 2.0 framework on WebLogic</li>
-                    <li><b>Engineered</b> a user data migration strategy that resulted in zero data loss during the
-                      transition to the new authentication framework</li>
-                  </ul>
-                  <span class="timeline-text-subtitle">DevOps, Cloud & Automation</span>
-                  <ul class="timeline-text">
-                    <li><b>Created</b> and managed CI/CD pipelines using GitHub Actions for over 10 microservices,
-                      streamlining the deployment process and improving release velocity</li>
-                    <li><b>Integrated</b> Hashicorp Vault for centralized and secure management of application secrets,
-                      enhancing the security posture of all microservices</li>
-                    <li><b>Configured</b> and deployed Airflow to schedule critical cron jobs, implementing automated
-                      email notifications for job status and failures</li>
-                    <li><b>Executed</b> a seamless upgrade of the Airflow platform to a newer version, ensuring
-                      compliance with enterprise standards and maintaining zero downtime</li>
-                    <li><b>Implemented</b> graceful shutdown procedures for Spring Boot services running in Kubernetes
-                      using Actuator endpoints, ensuring no in-flight requests were dropped</li>
-                    <li><b>Multi environment</b> support for microservices, allowing for easy deployment and management
-                      of different environments</li>
-                  </ul>
-                  </p>
-
-                </li>
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">Data Science Intern, HOME.LLC</h4>
-
-                  <span>April 2021 — Aug 2021 | Dec 2021 — Mar 2022</span>
-                  <p class="timeline-text">
-                    ● Led a research project on the US housing market, analyzing over 100 demand and supply factors
-                    impacting house prices at various levels.<br>
-                    ● Utilized Python (Pandas, Tableau) to collect, clean, and visualize data, creating reports that
-                    increased user traffic by 10%.<br>
-                    ● Developed machine learning and deep learning models to predict house prices and provide insights
-                    for housing investments.<br>
-                  </p>
-
-                </li>
-
-                <li class="timeline-item">
-
-                  <h4 class="h4 timeline-item-title">Frontend Development Intern, Farmley</h4>
-
-                  <span>Dec 2019 — Jan 2020</span>
-
-                  <p class="timeline-text">
-                    ● Developed an order management application and created a role-based dashboard for users.<br>
-                    ● Optimized web app performance by implementing pagination and filters, leading to decreased search
-                    time.<br>
-                  </p>
-
-                </li>
-
-              </ol>
-
-            </section>
-
-            <article class="resume" data-page="resume">
-
-              <header>
-                <h2 class="h2 article-title">Resume</h2>
-              </header>
-
-              <section class="timeline">
-
-                <div class="title-wrapper">
-                  <div class="icon-box">
-                    <ion-icon name="book-outline"></ion-icon>
-                  </div>
-
-                  <h3 class="h3">Education</h3>
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="tl-card">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-role">Frontend Development Intern</h3>
+                  <span class="tl-company">Farmley</span>
                 </div>
+                <span class="tl-period">Dec 2019 — Jan 2020</span>
+              </div>
+              <div class="tl-body">
+                <ul class="tl-list">
+                  <li>Developed order management application with role-based dashboard</li>
+                  <li>Optimized performance with pagination and filters, reducing search time</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-                <ol class="timeline-list">
+        </div>
 
-                  <li class="timeline-item">
+        <h2 class="sec-label" style="margin-top:80px;margin-bottom:40px">Education</h2>
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="timeline-dot"></div>
+            <div class="tl-card tl-card--compact">
+              <div class="tl-header">
+                <div>
+                  <h3 class="tl-role">B.Tech — Polymer Science</h3>
+                  <span class="tl-company">Indian Institute of Technology, Roorkee</span>
+                </div>
+                <span class="tl-period">2018 — 2022</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                    <h4 class="h4 timeline-item-title">Indian Institute of technology Roorkee</h4>
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-layout">
 
-                    <span>2018 — 2022</span>
+          <div class="contact-left">
+            <h2 class="contact-big">Let's build<br>something.</h2>
+            <a href="mailto:raghuwanshi.abhay405@gmail.com" class="contact-email-big">
+              raghuwanshi.abhay405@gmail.com ↗
+            </a>
+            <p class="contact-note">Open to full-time roles, contracts, and interesting side projects.</p>
+            <div class="contact-pills">
+              <a href="https://github.com/abhayraghuwanshi" target="_blank" class="cpill">GitHub ↗</a>
+              <a href="https://www.linkedin.com/in/abhay-raghuwanshi-2a6804173/" target="_blank" class="cpill">LinkedIn ↗</a>
+              <a href="https://leetcode.com/u/abhayraghuwanshi/" target="_blank" class="cpill">LeetCode ↗</a>
+            </div>
+          </div>
 
-                    <p class="timeline-text">
-                      I did my bachelor's in Polymer science from IIT roorkee
-                    </p>
+          <div class="contact-right">
+            <form class="contact-form" data-contact-form>
+              <div class="form-field">
+                <label for="cf-name">Name</label>
+                <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+              </div>
+              <div class="form-field">
+                <label for="cf-email">Email</label>
+                <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-field">
+                <label for="cf-subject">Subject</label>
+                <input type="text" id="cf-subject" name="subject" placeholder="What's on your mind?" required>
+              </div>
+              <div class="form-field">
+                <label for="cf-message">Message</label>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Tell me more..." required></textarea>
+              </div>
+              <button type="submit" class="btn-solid btn-full">Send message →</button>
+            </form>
+          </div>
 
-                  </li>
-
-                  <li class="timeline-item">
-
-                    <h4 class="h4 timeline-item-title">Sarvodaya Senior Secondary School, Kota Rajasthan</h4>
-
-                    <span>2016 — 2017</span>
-
-                    <p class="timeline-text">
-                      Completed class 12th.
-                    </p>
-
-                  </li>
-
-                  <li class="timeline-item">
-
-                    <h4 class="h4 timeline-item-title">First Step Higher Secondary School, Chhindwara MP</h4>
-
-                    <span>2015</span>
-
-                    <p class="timeline-text">
-                      passed class 10th
-                    </p>
-
-                  </li>
-
-                </ol>
-
-              </section>
-
-            </article>
-
-    </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
+  <footer class="footer">
+    <p>Abhay Raghuwanshi &nbsp;·&nbsp; Built from scratch &nbsp;·&nbsp; 2025</p>
+  </footer>
 
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <aside class="project-drawer" id="project-drawer" aria-hidden="true">
+    <button class="drawer-close" id="drawer-close" aria-label="Close">
+      <ion-icon name="close-outline"></ion-icon>
+    </button>
+    <div class="drawer-scroll">
+      <div class="drawer-content" id="drawer-content"></div>
+    </div>
+  </aside>
 
-
-
-
-  <!--
-    - custom js link
-  -->
   <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
 </body>
-
 </html>
