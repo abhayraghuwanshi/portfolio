@@ -50,8 +50,8 @@ const counterObs = new IntersectionObserver(entries => {
     requestAnimationFrame(step);
     counterObs.unobserve(el);
   });
-}, { threshold: 0.5 });
-document.querySelectorAll('.stat-num').forEach(el => counterObs.observe(el));
+}, { threshold: 0 });
+document.querySelectorAll('.stat-n').forEach(el => counterObs.observe(el));
 
 // ===== Scroll reveal =====
 const revealObs = new IntersectionObserver((entries) => {
