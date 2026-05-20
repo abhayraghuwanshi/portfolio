@@ -67,13 +67,46 @@ document.querySelectorAll('.reveal').forEach(observeReveal);
 // ===== Contact form =====
 const contactForm = document.querySelector('[data-contact-form]');
 if (contactForm) {
-  contactForm.addEventListener('submit', e => {
+  contactForm.addEventListener('submit', async e => {
     e.preventDefault();
-    const data = Object.fromEntries(new FormData(contactForm));
-    if (!data.name || !data.email || !data.subject || !data.message) { alert('Please fill in all fields.'); return; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) { alert('Please enter a valid email address.'); return; }
-    alert("Thanks for your message! I'll get back to you soon.");
-    contactForm.reset();
+    const data  = Object.fromEntries(new FormData(contactForm));
+    const btn   = contactForm.querySelector('button[type="submit"]');
+
+    if (!data.name || !data.email || !data.subject || !data.message) {
+      alert('Please fill in all fields.'); return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      alert('Please enter a valid email address.'); return;
+    }
+
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: '29add5c1-c56a-4efe-b4e7-83d6834457c9',
+          name:    data.name,
+          email:   data.email,
+          subject: data.subject || 'New message from portfolio',
+          message: data.message
+        })
+      });
+      const json = await res.json();
+      if (json.success) {
+        btn.textContent = 'Sent ✓';
+        contactForm.reset();
+        setTimeout(() => { btn.textContent = 'Send message →'; btn.disabled = false; }, 3000);
+      } else {
+        btn.textContent = 'Failed — try again';
+        btn.disabled = false;
+      }
+    } catch {
+      btn.textContent = 'Network error — try again';
+      btn.disabled = false;
+    }
   });
 }
 
