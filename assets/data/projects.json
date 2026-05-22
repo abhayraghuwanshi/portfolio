@@ -4,11 +4,11 @@
       "id": "cooldesk",
       "title": "Cooldesk",
       "tagline": "Smart new-tab browser extension and desktop app",
-      "description": "A productivity-first new-tab replacement with smart workspaces, notes, AI-powered suggestions, and voice actions. Built for developers who live in their browser.",
+      "description": "spotlight for projects",
       "longDescription": "Every time I opened a new tab I got distracted — ads, news, a blank page that told me nothing useful. Cooldesk started as a personal fix and grew into a full workspace OS for the browser.\n\nEach workspace is isolated: its own pinned tabs, notes, shortcuts, and context. Switch workspaces and the whole environment changes. The AI layer learns what you were working on and surfaces relevant tabs, docs, and reminders when you open a new tab in that context.\n\nVoice actions let you do things like 'open my design workspace', 'note: follow up with Priya tomorrow', or 'show me tabs I haven't visited in 3 days' without touching the keyboard.",
       "statusNote": "Core workspace system is working. Currently integrating the AI suggestion layer using a lightweight embedding model that runs locally — avoiding API calls for privacy.",
       "challenges": "The hardest part was Chrome's service worker lifecycle. Background workers get killed after 30 seconds of inactivity, so persisting workspace state reliably without data loss required a hybrid of chrome.storage, IndexedDB, and a keep-alive heartbeat strategy.",
-      "type": "Browser Extension",
+      "type": "Browser Extension and Desktop App",
       "status": "building",
       "featured": true,
       "year": 2025,
@@ -18,7 +18,10 @@
         "Vite",
         "OpenAI",
         "Web Speech API",
-        "IndexedDB"
+        "IndexedDB",
+        "Rust",
+        "Tauri",
+        "Desktop"
       ],
       "links": {
         "github": null,
@@ -30,6 +33,46 @@
         "Persistent workspaces with isolated tab groups",
         "AI-powered context suggestions",
         "Offline-first design"
+      ]
+    },
+    {
+      "id": "reelranker",
+      "title": "ReelRanker",
+      "tagline": "AI tier lists from Instagram reel comments.",
+      "description": "ReelRanker is a Chrome extension that scrapes Instagram reel comments, ranks them into S–F tiers using Google Gemini, and lets you drag-and-drop a polished tier board. It then generates AI voiceover scripts and exports the result as a shareable video — all from the browser sidebar.",
+      "longDescription": "Instagram comment sections are chaotic gold — but surfacing the funniest, most unhinged, or most culturally resonant comments manually is tedious. ReelRanker automates that: open any reel, hit rank, and get an AI-curated tier list in seconds, with multiple ranking personalities (Default, Savage, Indian) to match the vibe.\n\nThe extension scrapes up to 60 comments including GIFs, sends them to Gemini for tier classification, and renders an interactive drag-and-drop board. You can lock comments, manually add your own, and generate a full voiceover script with per-tier commentary. OpenAI TTS then converts the script to audio, all stored locally in IndexedDB. Sessions auto-save and restore on reload.\n\nThe hardest part was the video export pipeline: rendering 1080×1920 canvas frames at 30fps with animated GIFs required WebCodecs ImageDecoder (browser GIF APIs freeze in off-screen canvas contexts), per-frame bitmap caching, and a service-worker proxy to fetch cross-origin media without tainting the canvas. A separate overlay export path swaps A-tier green to yellow before chroma-keying.",
+      "statusNote": "Core ranking and tier dashboard are solid. Video and overlay export pipelines are stabilizing — GIF frame decoding and chroma-key compositing had several rework cycles and are still being refined.",
+      "challenges": "Animated GIFs freeze to a single frame when decoded in off-screen canvas contexts. The fix was switching to WebCodecs ImageDecoder for frame-by-frame decoding with per-frame bitmap caching, plus a Giphy MP4 fallback when the GIF URL itself is unavailable.",
+      "type": "Browser Extension",
+      "status": "building",
+      "featured": true,
+      "year": 2025,
+      "tech": [
+        "TypeScript",
+        "React",
+        "Tailwind CSS",
+        "Vite",
+        "Chrome Extensions MV3",
+        "Google Gemini API",
+        "OpenAI TTS",
+        "WebCodecs",
+        "Canvas API",
+        "dnd-kit",
+        "IndexedDB"
+      ],
+      "links": {
+        "github": "https://github.com/abhayraghuwanshi/cool-comments",
+        "live": "https://chromewebstore.google.com/detail/lgmmijdpaemlkihjmelodijggablcgdf?utm_source=item-share-cbc",
+        "demo": null
+      },
+      "icon": "trophy-outline",
+      "highlights": [
+        "Scrapes up to 60 Instagram reel comments including GIFs and metadata",
+        "AI tier ranking via Gemini with 3 personality modes: Default, Savage, Indian",
+        "Drag-and-drop tier board with lock, reorder, and manual comment support",
+        "AI-generated voiceover scripts converted to audio via OpenAI TTS",
+        "Exports 1080×1920 reel videos and chroma-key overlay clips at 30fps",
+        "Session auto-save and restore — picks up exactly where you left off"
       ]
     },
     {
@@ -100,24 +143,24 @@
     },
     {
       "id": "k8singress",
-      "title": "k8singress",
-      "tagline": "Kubernetes ingress experiments & patterns",
-      "description": "Hands-on experiments around Kubernetes ingress controllers, routing strategies, canary deployments, and real-world traffic handling patterns. A living lab and reference.",
-      "longDescription": "K8s ingress documentation is full of 'hello world' examples that fall apart the moment you try anything real. k8singress is my working notes and reproduced patterns from production problems I've hit or debugged.\n\nEach pattern is a self-contained example you can run locally with kind: the config, the test script, the failure mode it solves, and the tradeoffs. Topics covered include weighted canary rollouts, header-based routing for feature flags, mTLS between services, rate limiting at the edge, and zero-downtime cert rotation.\n\nI keep adding to this as I hit new things at work or encounter edge cases worth documenting.",
-      "statusNote": "Active — added Istio ambient mesh examples last month. Currently writing up a pattern for cross-cluster traffic management with Submariner.",
-      "challenges": "Reproducing production traffic behavior in a local kind cluster is harder than it sounds. Latency, connection pooling behavior, and DNS resolution work differently. Built a traffic simulation layer using k6 that mimics realistic request distributions for testing.",
-      "type": "DevOps / K8s",
-      "status": "Archived",
-      "featured": false,
+      "title": "K8s Diagram",
+      "tagline": "Visual Kubernetes YAML generator",
+      "description": "Drag-and-drop diagram builder that generates production-ready Kubernetes YAML. Draw your resource topology — Ingress, Service, Deployment, ConfigMap, HPA, and more — and export clean manifests instantly.",
+      "longDescription": "Writing Kubernetes YAML by hand is tedious and error-prone, especially when you're wiring up multiple resources. K8s Diagram is a visual builder where you drag resources onto a canvas, connect them, fill in the properties panel, and get valid YAML out the other end.\n\nSupports the full common stack: Ingress (with TLS, path rules, and ingress class), Services, Deployments with sidecar/init containers, ConfigMaps, Secrets, PVCs, CronJobs, HPAs, and standalone Pods. Cloud provider annotations are templated for AWS, GCP, and Azure out of the box.\n\nTemplates are loaded from a community GitHub library — you can browse pre-built patterns, import any YAML to auto-generate the diagram, or contribute your own patterns back via a built-in PR flow.",
+      "statusNote": "Active — recently added cloud provider annotation templates (AWS/GCP/Azure), YAML import-to-diagram, and a GitHub-backed community template library.",
+      "challenges": "Getting YAML import right was the tricky part — parsing arbitrary K8s manifests and reconstructing a meaningful visual graph with correct connections (Ingress→Service→Deployment) required a full bidirectional mapping layer. Auto-layout also needed work to keep diagrams readable for multi-resource setups.",
+      "type": "Developer Tool",
+      "status": "Active",
+      "featured": true,
       "year": 2024,
       "tech": [
-        "Kubernetes",
-        "Nginx Ingress",
-        "Helm",
-        "Istio",
-        "Go",
-        "kind",
-        "k6"
+        "React",
+        "TypeScript",
+        "ReactFlow",
+        "Vite",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "Kubernetes"
       ],
       "links": {
         "github": "https://github.com/abhayraghuwanshi/k8singress",
@@ -126,11 +169,12 @@
       },
       "icon": "git-network-outline",
       "highlights": [
-        "Canary & blue/green routing patterns",
-        "Header-based feature flag routing",
-        "mTLS between services",
-        "Zero-downtime cert rotation",
-        "Rate limiting at the edge"
+        "Visual drag-and-drop K8s resource builder",
+        "Generates valid YAML from diagram topology",
+        "YAML import auto-creates diagram with connections",
+        "Cloud provider annotation templates (AWS, GCP, Azure)",
+        "Community template library with GitHub PR contribution flow",
+        "Supports Ingress, Service, Deployment, HPA, CronJob, PVC, Secrets, Sidecars"
       ]
     },
     {
