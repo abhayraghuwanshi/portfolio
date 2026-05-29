@@ -46,6 +46,34 @@ input, textarea { font: inherit; }
   overflow: hidden;
 }
 
+/* ---- Large screen scaling ---- */
+@media (min-width: 1440px) {
+  .nav-container { max-width: 1440px; }
+  .hero-bento    { max-width: 1440px; grid-template-columns: repeat(4, 1fr) 260px 155px; }
+  .container     { max-width: 1440px; }
+  .bento-cell    { padding: 32px; }
+}
+
+@media (min-width: 1700px) {
+  .nav-container { max-width: 1640px; }
+  .hero-bento    { max-width: 1640px; grid-template-columns: repeat(4, 1fr) 300px 175px; }
+  .container     { max-width: 1640px; }
+  .bento-cell    { padding: 36px; }
+  .section       { padding: 120px 40px; }
+  body           { font-size: 16px; }
+}
+
+@media (min-width: 1920px) {
+  .nav-container { max-width: 1800px; }
+  .hero-bento    { max-width: 1800px; grid-template-columns: repeat(4, 1fr) 330px 195px; }
+  .container     { max-width: 1800px; }
+  .bento-cell    { padding: 40px; border-radius: 22px; }
+  .section       { padding: 140px 48px; }
+  .stat-n        { font-size: 64px; }
+  .tl-card       { padding: 36px; }
+  .contact-layout{ gap: 120px; }
+}
+
 /* ================================================================
    NAVBAR
 ================================================================ */
@@ -58,7 +86,7 @@ input, textarea { font: inherit; }
 .nav-container {
   max-width: 1280px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0 28px; height: 60px;
+  padding: 0 32px; height: 60px;
 }
 .nav-logo {
   font-family: var(--ff-d); font-size: 18px; font-weight: 700;
@@ -100,7 +128,7 @@ input, textarea { font: inherit; }
 .hero {
   min-height: 100vh;
   display: flex; align-items: center;
-  padding: 72px 16px 16px;
+  padding: 72px 24px 24px;
 }
 
 .hero-bento {
