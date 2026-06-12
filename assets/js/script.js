@@ -191,3 +191,50 @@ async function loadProjects() {
 }
 
 loadProjects();
+
+// ================================================================
+//  MARKDOWN VIEW — same content, LLM-readable (llms.txt)
+// ================================================================
+const mdToggle  = document.querySelector('[data-md-toggle]');
+const mdView    = document.getElementById('md-view');
+const mdContent = document.getElementById('md-view-content');
+const mdCopyBtn = document.querySelector('[data-md-copy]');
+let mdLoaded = false;
+
+async function setMdMode(on) {
+  document.body.classList.toggle('md-mode', on);
+  mdView.hidden = !on;
+  mdToggle.setAttribute('aria-pressed', String(on));
+  mdToggle.querySelector('.md-opt-html').classList.toggle('active', !on);
+  mdToggle.querySelector('.md-opt-md').classList.toggle('active', on);
+  history.replaceState(null, '', on ? '#md' : window.location.pathname);
+
+  if (on && !mdLoaded) {
+    try {
+      const res = await fetch('./llms.txt');
+      mdContent.textContent = await res.text();
+      mdLoaded = true;
+    } catch {
+      mdContent.textContent = 'Failed to load llms.txt';
+    }
+  }
+  if (on) window.scrollTo({ top: 0 });
+}
+
+if (mdToggle && mdView) {
+  mdToggle.addEventListener('click', () => setMdMode(!document.body.classList.contains('md-mode')));
+  if (window.location.hash === '#md') setMdMode(true);
+}
+
+if (mdCopyBtn) {
+  mdCopyBtn.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(mdContent.textContent);
+      mdCopyBtn.textContent = 'Copied ✓';
+      setTimeout(() => { mdCopyBtn.textContent = 'Copy'; }, 2000);
+    } catch {
+      mdCopyBtn.textContent = 'Failed';
+      setTimeout(() => { mdCopyBtn.textContent = 'Copy'; }, 2000);
+    }
+  });
+}

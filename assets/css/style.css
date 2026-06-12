@@ -647,3 +647,58 @@ input, textarea { font: inherit; }
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+
+/* ================================================================
+   MARKDOWN VIEW — LLM-readable switch
+================================================================ */
+.nav-list { margin-left: auto; }
+.md-toggle {
+  display: flex; align-items: center; gap: 2px;
+  margin-left: 16px; padding: 3px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 100px;
+}
+.md-toggle-opt {
+  font-family: var(--ff-d); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.03em; color: var(--text2);
+  padding: 3px 10px; border-radius: 100px;
+  transition: color var(--t), background var(--t);
+}
+.md-toggle-opt.active { color: var(--bg); background: var(--accent); }
+
+@media (max-width: 768px) {
+  .md-toggle { margin-left: auto; margin-right: 14px; }
+}
+
+body.md-mode main > section:not(.md-view) { display: none; }
+
+.md-view {
+  max-width: 880px; margin: 0 auto;
+  padding: 96px 24px 60px;
+  min-height: 100vh;
+}
+.md-view-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r) var(--r) 0 0;
+  padding: 10px 16px;
+}
+.md-view-path {
+  font-family: 'Courier New', monospace; font-size: 12px; color: var(--text2);
+}
+.md-copy-btn {
+  font-family: var(--ff-d); font-size: 12px; font-weight: 600;
+  color: var(--text2); padding: 4px 12px;
+  border: 1px solid var(--border); border-radius: 100px;
+  transition: color var(--t), border-color var(--t);
+}
+.md-copy-btn:hover { color: var(--accent); border-color: var(--accent); }
+.md-view-pre {
+  background: var(--surface); border: 1px solid var(--border); border-top: none;
+  border-radius: 0 0 var(--r) var(--r);
+  padding: 24px;
+  font-family: 'Courier New', monospace; font-size: 13px; line-height: 1.7;
+  color: var(--text);
+  white-space: pre-wrap; word-break: break-word;
+  overflow-x: auto;
+}

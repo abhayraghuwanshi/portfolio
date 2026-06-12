@@ -1,0 +1,128 @@
+# Abhay Raghuwanshi — Software Developer
+
+> Backend-leaning full-stack engineer building microservices, cloud infra, and AI-assisted products. 4+ years at Societe Generale. B.Tech from IIT Roorkee. Based in Bangalore, India. Open to full-time roles, contracts, and interesting side projects.
+
+- Email: raghuwanshi.abhay405@gmail.com
+- GitHub: https://github.com/abhayraghuwanshi
+- LinkedIn: https://www.linkedin.com/in/abhay-raghuwanshi-2a6804173/
+- LeetCode: https://leetcode.com/u/abhayraghuwanshi/
+- Location: Bangalore, India
+
+## Technical Stack
+
+- **Core:** Java, Spring Boot, Kubernetes
+- **Strong:** PostgreSQL, Docker, Microservices, Rust
+- **Working:** AWS, Azure, RabbitMQ, Redis, Temporal, Python, React, Event-Driven Architecture
+- **Familiar:** FastAPI, Elasticsearch, Grafana, Kibana, Airflow, Helm, Jenkins, HashiCorp Vault, GitHub Actions, Quartz, Oracle, Kafka
+
+## Projects
+
+### Cooldesk — Smart new-tab browser extension and desktop app
+- Status: Building · 2025 · Browser Extension and Desktop App
+- Live: https://cool-desk.com
+- Tech: React, Chrome APIs, Vite, OpenAI, Web Speech API, IndexedDB, Rust, Tauri, Desktop
+
+A workspace OS for the browser. Each workspace is isolated with its own pinned tabs, notes, shortcuts, and context. An AI layer learns what you were working on and surfaces relevant tabs, docs, and reminders; voice actions let you control it hands-free. Hardest problem: Chrome's service worker lifecycle kills background workers after 30 seconds, so reliable workspace persistence required a hybrid of chrome.storage, IndexedDB, and a keep-alive heartbeat strategy.
+
+### ReelRanker — AI tier lists from Instagram reel comments
+- Status: Building · 2025 · Browser Extension
+- Code: https://github.com/abhayraghuwanshi/cool-comments
+- Live: https://chromewebstore.google.com/detail/lgmmijdpaemlkihjmelodijggablcgdf
+- Tech: TypeScript, React, Tailwind CSS, Vite, Chrome Extensions MV3, Google Gemini API, OpenAI TTS, WebCodecs, Canvas API, dnd-kit, IndexedDB
+
+Chrome extension that scrapes up to 60 Instagram reel comments (including GIFs), ranks them into S–F tiers using Google Gemini with three personality modes (Default, Savage, Indian), and renders an interactive drag-and-drop tier board. Generates AI voiceover scripts via OpenAI TTS and exports 1080×1920 reel videos plus chroma-key overlay clips at 30fps. Hardest problem: animated GIFs freeze in off-screen canvas contexts — fixed with WebCodecs ImageDecoder for frame-by-frame decoding with per-frame bitmap caching.
+
+### Hinge Genie — AI-powered dating swiping assistant
+- Status: Archived · 2025 · AI Tool
+- Code: https://github.com/abhayraghuwanshi/hinge-genie
+- Tech: React, FastAPI, Python, Claude API, Vision Models, Chrome Extension
+
+Generates context-aware, natural conversation replies for dating apps by reading the full profile (photos, prompts, answers). Calibrates tone per user so replies stay in your voice. Key insight: early versions sounded AI-generated because they were too polished — a "naturalness pass" deliberately introduces small imperfections (shorter sentences, contractions, casual phrasing) to match how people actually text.
+
+### InfraPlan — AI cloud architecture planner
+- Status: Paused · 2025 · AI Tool
+- Live: https://infraplan.cloud/
+- Tech: React, FastAPI, LLM, AWS Pricing API, Terraform, D3.js
+
+Describe what you want to build — InfraPlan generates a cloud architecture, monthly cost breakdown per service, and a phased scaling strategy before you write infra code. Also flags common mistakes (e.g., single-AZ RDS for 50k DAU). Built a caching layer over the AWS Pricing API to get reliable estimates without hammering rate limits.
+
+### K8s Diagram — Visual Kubernetes YAML generator
+- Status: Active (Live) · 2024 · Developer Tool
+- Code: https://github.com/abhayraghuwanshi/k8singress
+- Live: https://k8sdiagram.fun/
+- Tech: React, TypeScript, ReactFlow, Vite, Tailwind CSS, shadcn/ui, Kubernetes
+
+Drag-and-drop diagram builder that generates production-ready Kubernetes YAML. Supports Ingress (TLS, path rules), Services, Deployments with sidecar/init containers, ConfigMaps, Secrets, PVCs, CronJobs, HPAs, and standalone Pods, with cloud provider annotation templates for AWS/GCP/Azure. YAML import auto-reconstructs the visual graph with correct connections, and a GitHub-backed community template library supports contribution via a built-in PR flow.
+
+### 3D Portfolio — Interactive system-simulator style portfolio
+- Status: Paused · 2025 · Creative / Frontend
+- Code: https://github.com/abhayraghuwanshi/3dfolio
+- Tech: Three.js, React, WebGL, D3.js, GLSL
+
+A portfolio where projects are live service nodes in a system graph — health indicators, dependency edges, logs, and a quest layer that unlocks deeper access through small challenges. Implemented a LOD system and debounced physics for off-screen nodes to keep WebGL performance acceptable on lower-end devices.
+
+### YouTube Streaming Overlay — Stream overlay with a local AI companion
+- Status: Building · 2024 · Streaming Tool
+- Code: https://github.com/abhayraghuwanshi/cool-stream-overlay
+- Tech: React, Ollama, Llama 3.2, WebSocket, OBS Browser Source
+
+OBS browser-source overlay with an AI companion that runs fully on-device via Ollama. It reads chat, reacts to stream moments, answers viewer questions, and can whisper private info to the streamer. Streaming token output makes responses appear word-by-word to mask local-model latency.
+
+### Dropquest — C2C delivery marketplace powered by travelers
+- Status: Archived · 2024 · Full Stack
+- Code: https://github.com/abhayraghuwanshi
+- Tech: React.js, Spring Boot, PostgreSQL, PostGIS, Redis, WebSocket, OAuth2, JWT
+
+Marketplace connecting parcel senders with travelers who have spare luggage space, with three user roles and route-based matching. Real-time delivery tracking via WebSocket; OAuth2 + JWT auth. Route matching was O(n²) with naive geo queries — solved with PostGIS and bounding-box pre-filtering before the full route overlap check.
+
+### AI Movie Script Generator — Collaborative AI-powered scriptwriting platform
+- Status: Archived · 2024 · AI Tool
+- Code: https://github.com/abhayraghuwanshi
+- Tech: React, FastAPI, Python, WebSocket, Material-UI, AI Agents, LangChain
+
+Real-time collaborative screenwriting where AI agents play specific characters — each with a defined personality, speech pattern, and story knowledge — to generate dialogue or improvise scenes together. Visual timeline editor with story branching and voice meeting integration. Character voice consistency over long scripts solved with per-character personality embeddings plus a rolling summary injected into every generation request.
+
+## Experience
+
+### Software Developer — Societe Generale Global Solution Centre (Jun 2022 — Present)
+
+**System Design**
+- Architected an asynchronous, event-driven system for daily batch operations, integrating file processing, APIs, and webhooks to improve throughput and reliability
+- Designed and deployed a workflow orchestration engine in Azure using Temporal, achieving 900 workflows per minute
+- Designed a multi-invoice reporting system using Strategy and Abstract Factory patterns, abstracting invoice types behind a common interface to support extensible report generation without modifying core logic
+
+**Software Development**
+- Developed a RESTful API for VAT computation and invoicing across financial transactions, with a pipeline-style processing model where each billing step is an interface-driven handler — sub-steps can be composed, reordered, or extended without touching core scheduling logic
+- Implemented post-sweep statement generation service using dual RabbitMQ connections
+- Replaced leader-based Spring scheduler with distributed Quartz Scheduler; built a custom annotation for job persistence and feature-flag logging, enabling zero-friction migration across 8 microservices
+- Applied retry, circuit breaker, and rate limiting patterns across APIs using Resilience4j
+
+**Data Migration & Legacy Modernization**
+- Automated migration of 3,000+ cash pool customers from Oracle to PostgreSQL via Jenkins, reducing manual onboarding by 80%
+- Reduced data migration time by 2 hours per batch with optimized automation scripts
+- Migrated legacy CTI authentication to enterprise OAuth 2.0 on WebLogic with zero data loss
+
+**DevOps, Cloud & Automation**
+- Created and managed CI/CD pipelines using GitHub Actions for 10+ microservices
+- Integrated HashiCorp Vault for centralized secrets management across all services
+- Implemented graceful shutdown for Spring Boot services in Kubernetes using Actuator endpoints
+- Set up observability stack with Filebeat, APM, and Metricbeat on Azure; deployment-aware APM settings and condition-based email alerts
+- Built Airflow DAGs with automated DB queries for morning production health checks across multiple countries' EOD processes
+
+### Data Science Intern — HOME.LLC (Apr 2021 — Mar 2022)
+- Led research on the US housing market analyzing 100+ demand and supply factors impacting house prices
+- Used Python (Pandas, Tableau) to clean and visualize data — reports increased user traffic by 10%
+- Built ML and deep learning models to predict house prices for investment insights
+
+### Frontend Development Intern — Farmley (Dec 2019 — Jan 2020)
+- Developed order management application with role-based dashboard
+- Optimized performance with pagination and filters, reducing search time
+
+## Education
+
+- **B.Tech, Polymer Science** — Indian Institute of Technology, Roorkee (2018 — 2022)
+
+## Contact
+
+- Email: raghuwanshi.abhay405@gmail.com
+- Open to full-time roles, contracts, and interesting side projects.
